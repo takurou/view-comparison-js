@@ -37,6 +37,7 @@ function dragStart(e){
   } else {
     event = e;
   }
+
   move_flg = true;
   let for_flag = false;
   let targetElement = '';  //arrow要素
@@ -61,7 +62,6 @@ function dragStart(e){
   dragMoveFunc = function(e){ dragMove(e,targetElement) }  //イベントの解除を有効にするためにdragMoveを一度dragMoveFuncに格納
   document.body.addEventListener(moveEvent, dragMoveFunc , false);  //dragMoveFuncを実行
 }
-
 
 //マウスムーブ、タッチムーブ時の関数
 function dragMove(e,ele){
