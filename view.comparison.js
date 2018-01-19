@@ -30,14 +30,7 @@ if( device == 'smt' ){
 }
 
 //マウスダウン、タッチスタート時の関数
-function mouseDown(e){
-  let event = '';
-  if( device === 'smt' ) {
-    //スマホ時のタッチの差異を埋めるため
-    event = e.changedTouches[0];
-  } else {
-    event = e;
-  }
+function mouseDown(event){
   move_flg = true;
   let for_flag = false;
   let targetElement = '';  //arrow要素
@@ -107,7 +100,7 @@ function mouseDrag(e,ele){
 }
 
 //マウスアップ、タッチエンド時の関数
-function mouseUp(e){
+function mouseUp(){
   move_flg = false;
   // mousemoveFuncを解除する
   document.body.removeEventListener(moveEvent, mousemoveFunc, false);
