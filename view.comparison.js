@@ -1,7 +1,7 @@
-const blockElements = document.getElementsByClassName("comparison-block");      //arrow,before-img,after-imgを囲む要素
-const elements = document.getElementsByClassName("comparison-arrow");           //ドラッグできる境界線の要素
-const beforeImages = document.getElementsByClassName("comparison-before-img");  //変更前の画像を囲むdivタグ要素
-let device = "";         // デバイス
+const blockElements = document.getElementsByClassName('comparison-block');      //arrow,before-img,after-imgを囲む要素
+const elements = document.getElementsByClassName('comparison-arrow');           //ドラッグできる境界線の要素
+const beforeImages = document.getElementsByClassName('comparison-before-img');  //変更前の画像を囲むdivタグ要素
+let device = '';         // デバイス
 let move_start_x = 0;    // 境界線のX線上の初期値
 let move_flg = false;    // マウスダウンをしているかどうかのbool値
 let mousemoveFunc = '';  // mouseDrag関数を格納するための変数
