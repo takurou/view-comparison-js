@@ -4,7 +4,7 @@ const beforeImages = document.getElementsByClassName('comparison-before-img');  
 let device = '';         // デバイス
 let move_start_x = 0;    // 境界線のX線上の初期値
 let move_flg = false;    // マウスダウンをしているかどうかのbool値
-let mousemoveFunc = '';  // mouseDrag関数を格納するための変数
+let dragMoveFunc = '';  // mouseDrag関数を格納するための変数
 let startEvent = '';     // ドラッグ開始イベント
 let moveEvent = '';      // ドラッグ中のイベント
 let endEvent = '';       // ドラッグ終了のイベント
@@ -30,7 +30,7 @@ if( device == 'smt' ){
 }
 
 //マウスダウン、タッチスタート時の関数
-function mouseDown(event){
+function dragStart(event){
   move_flg = true;
   let for_flag = false;
   let targetElement = '';  //arrow要素
@@ -52,13 +52,13 @@ function mouseDown(event){
     move_start_x = event.pageX - this.offsetLeft;
     targetElement = this;
   }
-  mousemoveFunc = function(e){ mouseDrag(e,targetElement) }  //イベントの解除を有効にするためにmouseDragを一度mousemoveFuncに格納
-  document.body.addEventListener(moveEvent, mousemoveFunc , false);  //mousemoveFuncを実行
+  dragMoveFunc = function(e){ dragMove(e,targetElement) }  //イベントの解除を有効にするためにmouseDragを一度mousemoveFuncに格納
+  document.body.addEventListener(moveEvent, dragMoveFunc , false);  //mousemoveFuncを実行
 }
 
 
 //マウスムーブ、タッチムーブ時の関数
-function mouseDrag(e,ele){
+function dragMove(e,ele){
   let event = '';
   if( device === 'smt' ) {
     //スマホ時のタッチの差異を埋めるため
@@ -100,10 +100,10 @@ function mouseDrag(e,ele){
 }
 
 //マウスアップ、タッチエンド時の関数
-function mouseUp(){
+function dragEnd(){
   move_flg = false;
   // mousemoveFuncを解除する
-  document.body.removeEventListener(moveEvent, mousemoveFunc, false);
+  document.body.removeEventListener(moveEvent, dragMoveFunc, false);
 }
 
 //ロード時の関数
@@ -135,13 +135,13 @@ function resizeFunc(){
 if( device == 'smt' ){
   for( let i = 0 ; i < elements.length ; i++ ){
     //スマホ時はユーザビリティ向上の為、イベント発火の対象はarrow部分でなく、画像を囲む要素
-    blockElements[i].addEventListener(startEvent, mouseDown, false);
+    blockElements[i].addEventListener(startEvent, dragStart, false);
   }  
 }else{
   for( let i = 0 ; i < elements.length ; i++ ){
-    elements[i].addEventListener(startEvent, mouseDown, false);
+    elements[i].addEventListener(startEvent, dragStart, false);
   }  
 }
-document.body.addEventListener(endEvent, mouseUp, false);
+document.body.addEventListener(endEvent, dragEnd, false);
 window.addEventListener("load", loadFunc, false);
 window.addEventListener("resize", resizeFunc, false);
