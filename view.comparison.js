@@ -53,7 +53,7 @@ function dragStart(event){
     targetElement = this;
   }
   dragMoveFunc = function(e){ dragMove(e,targetElement) }  //イベントの解除を有効にするためにdragMoveを一度dragMoveFuncに格納
-  document.body.addEventListener(moveEvent, dragMoveFunc , false);  //mousemoveFuncを実行
+  document.body.addEventListener(moveEvent, dragMoveFunc , false);  //dragMoveFuncを実行
 }
 
 
