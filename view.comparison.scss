@@ -1,0 +1,59 @@
+.comparison-block{
+  width: 100%;
+  max-width: 640px;
+  position: relative;
+  margin: 0 auto;
+  .comparison-before-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 5;
+  }
+  .comparison-after-img{
+    position: relative;
+    z-index: 1;
+    img{
+      width: 100%;
+    }
+  }
+  //選択時に画像の色を変えないようにする
+  &::selection{
+    background-color: rgba(255,255,255,0);
+  }
+  &::-moz-selection{
+    background-color: rgba(255,255,255,0);
+  }
+  *{
+    &::selection{
+      background-color: rgba(255,255,255,0);
+    }
+    &::-moz-selection{
+      background-color: rgba(255,255,255,0);
+    }    
+  }
+}
+
+//境界線のcss
+.comparison-arrow{
+  background-color: #fff;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  left: 50%;
+  cursor: pointer;
+  &:after{
+    content: '';
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    margin-top: -15px;
+    left: -14px;
+  }
+}
