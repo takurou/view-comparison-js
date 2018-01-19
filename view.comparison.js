@@ -30,7 +30,13 @@ if( device == 'smt' ){
 }
 
 //マウスダウン、タッチスタート時の関数
-function dragStart(event){
+function dragStart(e){
+  let event = '';
+  if( device === 'smt' ) {
+    event = e.changedTouches[0];
+  } else {
+    event = e;
+  }
   move_flg = true;
   let for_flag = false;
   let targetElement = '';  //arrow要素
@@ -61,7 +67,6 @@ function dragStart(event){
 function dragMove(e,ele){
   let event = '';
   if( device === 'smt' ) {
-    //スマホ時のタッチの差異を埋めるため
     event = e.changedTouches[0];
   } else {
     event = e;
