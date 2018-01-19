@@ -3,37 +3,36 @@
   max-width: 640px;
   position: relative;
   margin: 0 auto;
-  .comparison-before-img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: 5;
-  }
-  .comparison-after-img{
-    position: relative;
-    z-index: 1;
-    img{
-      width: 100%;
-    }
-  }
   //選択時に画像の色を変えないようにする
   &::selection{
-    background-color: rgba(255,255,255,0);
+    background-color: transparent;
   }
   &::-moz-selection{
-    background-color: rgba(255,255,255,0);
+    background-color: transparent;
   }
   *{
     &::selection{
-      background-color: rgba(255,255,255,0);
+      background-color: transparent;
     }
     &::-moz-selection{
-      background-color: rgba(255,255,255,0);
+      background-color: transparent;
     }    
   }
 }
-
+.comparison-before-img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 5;
+}
+.comparison-after-img{
+  position: relative;
+  z-index: 1;
+  img{
+    width: 100%;
+  }
+}
 //境界線のcss
 .comparison-arrow{
   background-color: #fff;
