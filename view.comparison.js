@@ -107,7 +107,7 @@ function dragMove(e,ele){
 //マウスアップ、タッチエンド時の関数
 function dragEnd(){
   move_flg = false;
-  // mousemoveFuncを解除する
+  // dragMoveFuncを解除する
   document.body.removeEventListener(moveEvent, dragMoveFunc, false);
 }
 
