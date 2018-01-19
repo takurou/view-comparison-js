@@ -1,0 +1,38 @@
+/* 全体を囲む要素 */
+.comparison-block {
+  width: 100%;
+  max-width: 640px;  /* 画像の最大幅です。適宜変更してください */
+  position: relative;
+}
+
+/* 左側の画像を囲む要素 */
+.comparison-before-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 5; /* 「右側の画像を囲む要素」のz-inexより大きければ問題ないです。 */
+}
+
+/* 右側の画像を囲む要素 */
+.comparison-after-img {
+  position: relative;
+  z-index: 1;
+}
+
+/* 右側の画像 */
+.comparison-after-img img {
+  width: 100%;
+}
+
+/* 境界線 */
+.comparison-arrow{
+  background-color: #fff;  /* 境界線の色です。 */
+  position: absolute;
+  z-index: 10; /* 「左側の画像を囲む要素」のz-inexより大きければ問題ないです。 */
+  top: 0;
+  width: 2px;  /* 境界線の太さ */
+  height: 100%;
+  left: 50%;
+  cursor: pointer;
+}

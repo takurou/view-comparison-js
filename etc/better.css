@@ -1,0 +1,13 @@
+/* 全体を囲む要素と全体を囲む要素の子要素全て、選択時の背景色を透明にする */
+.comparison-block::selection {
+  background-color: transparent;
+}
+.comparison-block::-moz-selection {
+  background-color: transparent;
+}
+.comparison-block *::selection {
+  background-color: transparent;
+}
+.comparison-block *::-moz-selection {
+  background-color:transparent;
+}
